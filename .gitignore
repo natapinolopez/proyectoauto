@@ -1,0 +1,12 @@
+app/__pycache__/admin.cpython-311.pyc
+app/__pycache__/forms.cpython-311.pyc
+app/__pycache__/models.cpython-311.pyc
+app/__pycache__/urls.cpython-311.pyc
+app/__pycache__/views.cpython-311.pyc
+app/migrations/__pycache__/0001_initial.cpython-311.pyc
+app/migrations/__pycache__/0002_producto_imagen.cpython-311.pyc
+app/migrations/__pycache__/0003_contacto.cpython-311.pyc
+web/__pycache__/__init__.cpython-311.pyc
+web/__pycache__/settings.cpython-311.pyc
+web/__pycache__/urls.cpython-311.pyc
+web/__pycache__/wsgi.cpython-311.pyc
