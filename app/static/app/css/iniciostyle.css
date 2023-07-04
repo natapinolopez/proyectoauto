@@ -1,0 +1,64 @@
+.container{
+  width: 600px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+}
+
+.social-icons li {
+  margin: 0 10px;
+}
+
+.social-icons li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background-color: #333;
+  width: 40px;
+  height: 640px;
+  border-radius: 50%;
+}
+
+.social-icons li a:hover {
+  background-color: #666;
+}
+
+.social-icons li a i {
+  font-size: 40px;
+}
+.fin {
+  color: white;
+  text-align: center;
+}
+.fra {
+  color: white;
+  text-align: center;
+}
+.carousel-item {
+  height: 600px;
+}
+
+.carousel-item img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #000;
+}
+
+.carousel-indicators li {
+  background-color: #000;
+}
+
+.carousel-indicators .active {
+  background-color: #fff;
+}

@@ -1,0 +1,44 @@
+{% extends 'app/base.html' %} {% load static %} {% block extra_css%}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'app/css/acercadessyle.css'%}"
+/>
+{% endblock %} {% block contenido %}
+
+<hr style="background-color: aliceblue" size="delgada" />
+<section class="about-section py-5" style="color: white">
+  <div class="container">
+    <h2 style="text-align: center">Acerca de Nosotros</h2>
+    <div class="col-md-6" style="margin: 100px">
+      <div class="col-md-6" style="color: white; text-align: center">
+        <img
+          src="{% static 'app/img/autoacerca.jpg'%}"
+          class="img-fluid"
+          alt="Foto de la empresa"
+        />
+      </div>
+
+      <br />
+      <p>
+        Somos una empresa líder en la venta y reparación de autos de alta
+        calidad en todo el país. Ofrecemos una amplia selección de modelos de
+        las mejores marcas, con la garantía de que cada vehículo ha sido
+        rigurosamente inspeccionado antes de ponerse a la venta. Además,
+        contamos con un equipo de técnicos altamente capacitados que brindan un
+        servicio excepcional en nuestro taller de servicio completo.
+      </p>
+      <p>
+        Nuestro objetivo es brindar una experiencia de compra y servicio
+        excepcional a nuestros clientes, y nos esforzamos por lograrlo en cada
+        interacción. Esperamos poder ayudarte a encontrar el auto perfecto para
+        ti y mantenerlo funcionando sin problemas durante años.
+      </p>
+    </div>
+  </div>
+</section>
+<br />
+<hr style="background-color: aliceblue" />
+<br />
+
+{% endblock %}

@@ -1,0 +1,19 @@
+h4 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+form label {
+  font-weight: bold;
+}
+
+form input,
+form textarea {
+  margin-bottom: 20px;
+}
+
+

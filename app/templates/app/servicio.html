@@ -1,0 +1,65 @@
+{% extends 'app/base.html' %} {% load static %} {% block extra_css%}
+<link rel="stylesheet" type="text/css" href="{% static 'app/css/carritostyle.css'%}" />
+{% endblock %} {% block contenido %}
+<header style="position: fixed; top: 0">
+  <!-- Código del encabezado -->
+</header>
+
+<div style="margin: 1%;">
+  <div class="container">
+    <div class="row justify-content-around">
+      {% for producto in carts %}
+      <div class="col-lg-6">
+        <div class="carts">
+          <img src="{{ producto.imagen.url }}" alt="" style="height: 199px;">
+          <h5 class="card-title fw-bold text-light">{{ producto.nombre }}</h5>
+          <p>
+            <font color="#ffffff">${{ producto.precio }}</font>
+          </p>
+          <a href="" data-id="{{ producto.id }}" class="btn-add-cart">add to cart</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <input type="hidden" name="product_id" id="product_id">
+  {{ form.as_p }}
+  <button type="submit">Guardar</button>
+</form>
+
+<a href="carrito.html" class="boton-carritos">
+  <!--<span class="texto-boton">Ir al carrito de compras</span> -->
+  <span class="icono-carrito">
+    <img src="{% static 'app/img/izquierda.png' %}" alt="" style="height: 70px" /></span>
+</a>
+{% endblock %}
+
+
+{% block extra_js %}
+<script>
+  function showCart(x) {
+    document.getElementById("products-id").style.display = "block";
+  }
+  function closeBtn() {
+    document.getElementById("products-id").style.display = "none";
+  }
+</script>
+
+<script src="{% static 'app/js/custmon.js' %}"></script>
+<script>
+  const addToCartButtons = document.querySelectorAll('.btn-add-cart');
+
+  addToCartButtons.forEach(button => {
+    button.addEventListener('click', function(event) {
+      event.preventDefault();
+      const productId = this.getAttribute('data-id');
+      document.getElementById('product_id').value = productId;
+      
+    });
+  });
+</script>
+{% endblock %}

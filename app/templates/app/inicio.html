@@ -1,0 +1,96 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'app/css/inciostyle.css' %}" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('.carousel').carousel();
+  });
+</script>
+{% endblock %}
+
+{% block contenido %}
+<br>
+<br>
+<div style="color: white">
+  <br />
+  <h2 style="text-align: center">BIENVENIDO</h2>
+  <p style="text-align: center; margin-left: 300px; margin-right: 300px">
+    ¡Bienvenido/a al blog de autos! Aquí encontrarás todo lo que necesitas saber
+    sobre el fascinante mundo de los automóviles. Desde noticias sobre las
+    últimas tendencias en la industria hasta reseñas detalladas de los modelos
+    más recientes, estamos aquí para mantenerte actualizado/a y entretenido/a.
+    Además, no solo hablamos de los coches en sí, sino también de todo lo
+    relacionado con ellos, desde el mantenimiento y reparación hasta consejos
+    útiles para ahorrar en combustible y cuidar el medio ambiente. En
+    definitiva, si eres un apasionado/a de los autos o simplemente buscas
+    información útil sobre ellos, ¡este es el lugar adecuado para ti! ¡Explora
+    nuestro blog y descubre todo lo que tenemos para ofrecerte! No dudes en
+    dejarnos tus comentarios y sugerencias, ¡tu opinión es muy importante para
+    nosotros!
+  </p>
+</div>
+
+<br />
+<br />
+<div class="container" style="color: white">
+  <h1 style="text-align: center">Modelos Disponibles</h1>
+  <br />
+  <br />
+
+  <div id="miCarrusel" class="carousel slide" data-ride="carousel" style="width: 1000px; height: 600px">
+    <ol class="carousel-indicators">
+      <li data-target="#miCarrusel" data-slide-to="0" class="active"></li>
+      <li data-target="#miCarrusel" data-slide-to="1"></li>
+      <li data-target="#miCarrusel" data-slide-to="2"></li>
+      <li data-target="#miCarrusel" data-slide-to="3"></li>
+      <li data-target="#miCarrusel" data-slide-to="4"></li>
+      <li data-target="#miCarrusel" data-slide-to="5"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'app/img/CARS.jpg' %}" class="d-block w-100" alt="Imagen 1" width="1000px" height="600px" />
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'app/img/nissan.jpg' %}" class="d-block w-100" alt="Imagen 2" width="1000px" height="600px" />
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'app/img/toyota.jpg' %}" class="d-block w-100" alt="Imagen 3" width="1000px" height="600px" />
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'app/img/bmw.jpg' %}" class="d-block w-100" alt="Imagen 4" width="1000px" height="600px" />
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'app/img/rojo.jpg' %}" class="d-block w-100" alt="Imagen 5" width="1000px" height="600px" />
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'app/img/mb.jpg' %}" class="d-block w-100" alt="Imagen 6" width="1000px" height="600px" />
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#miCarrusel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Anterior</span>
+    </a>
+    <a class="carousel-control-next" href="#miCarrusel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Siguiente</span>
+    </a>
+  </div>
+  
+
+<ul class="social-icons">
+  <p style="color: white">REDES SOCIALES</p>
+  <div class="row" style="text-align: center">
+    <a href="#" style="margin: 5px"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" style="margin: 5px"><i class="fab fa-twitter"></i></a>
+    <a href="#" style="margin: 5px"><i class="fab fa-instagram"></i></a>
+  </div>
+</ul>
+{% endblock %}

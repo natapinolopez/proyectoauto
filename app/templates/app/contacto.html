@@ -1,0 +1,44 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'app/css/contactostyle.css' %}" />
+{% endblock %}
+
+{% block contenido %}
+<div class="container" style="color: white">
+  <div>
+    <div style="text-align: center">
+      <h4>Contáctanos</h4>
+      <img src="{% static 'app/img/autoacerca.jpg' %}" alt="40%" />
+    </div>
+    <form onsubmit="return validarFormulario()" action="" method="POST">
+      <div class="form-group">
+        {% csrf_token %}
+        {{ form }}
+      </div>
+      
+
+      <button type="submit" class="btn btn-primary">Enviar</button>
+
+    </form>
+  </div>
+  <footer>
+    <div>
+      <ul class="list-unstyled">
+        <br />
+        <li><i class="fas fa-phone-alt"></i> +56 9 11112222</li>
+        <li><i class="fas fa-envelope"></i> info@leMondeDesVoiture</li>
+        <li>
+          <i class="fas fa-map-marker-alt"></i> 123 Libertat, Viña del Mar,
+          Chile
+        </li>
+      </ul>
+    </div>
+  </footer>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'app/js/validacion.js' %}"></script>
+{% endblock %}

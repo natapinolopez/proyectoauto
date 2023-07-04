@@ -1,0 +1,54 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block contenido %}
+
+<!--IMAGENES Y MENU-->
+</div>
+<div class="slider-cotainer">
+    <section class="hero-section">
+        <div class="card-grid">
+            <a class="card" href="{% url 'inicio'%}">
+                <div class="card__background" style="background-image"> <img src="{% static 'app/img/sinlogo.jpg' %}"
+                        alt="INICIO" width="280px" height="420px">
+
+                </div>
+                <div class="card__content">
+                    <p class="card__category">Category</p>
+                    <h3 class="card__heading">INICIO</h3>
+                </div>
+            </a>
+            <a class="card" href="{% url 'acercade'%}">
+                <div class="card__background" style="background-image"> <img src="{% static 'app/img/ACERCADE.jpg' %}"
+                        alt="ACERCADE" width="280px" height="420px">
+                </div>
+                <div class="card__content">
+                    <p class="card__category">Category</p>
+                    <h3 class="card__heading">ACERCA DE </h3>
+                </div>
+            </a>
+            <a class="card" href="{% url 'servicio'%}">
+                <div class="card__background" style="background-image"><img src="{% static 'app/img/nose.jpg' %}"
+                        alt="SERVICIOS" width="280px" height="420px">
+                </div>
+                <div class="card__content">
+                    <p class="card__category">Category</p>
+                    <h3 class="card__heading">SERVICIOS</h3>
+                </div>
+            </a>
+            </li>
+            <a class="card" href="{% url 'contacto'%}">
+                <div class="card__background" style="background-image"><img src="{% static 'app/img/contacto.jpg' %}"
+                        alt="CONTACTO" width="280px" height="420px">
+                </div>
+                <div class=" card__content">
+                    <p class="card__category">Category</p>
+                    <h3 class="card__heading">CONTACTO</h3>
+                </div>
+            </a>
+            
+    </section>
+</div>
+<div>
+
+{% endblock %}
