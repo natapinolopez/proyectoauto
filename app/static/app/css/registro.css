@@ -1,0 +1,32 @@
+input[type="password"] {
+    width: 200px;
+    height: 30px;
+    font-size: 16px;
+}
+input[type="text"]{
+    width: 200px;
+    height: 30px;
+    font-size: 16px;
+}
+input[type="email"]{
+    width: 200px;
+    height: 30px;
+    font-size: 16px;
+    margin-left: 40px;
+}
+
+
+
+
+button {
+    font-size: 18px;
+}
+
+h2 {
+    font-size: 24px;
+    text-align: center;
+}
+
+form {
+    line-height: 1.5;
+}
