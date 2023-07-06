@@ -1,42 +1,109 @@
-{% extends 'app/base.html' %} {% load static %} {% block extra_css%}
-<link rel="stylesheet" type="text/css" href="{% static 'app/css/carritostyle.css'%}" />
-{% endblock %} {% block contenido %}
-<header style="position: fixed; top: 0">
-  <!-- Código del encabezado -->
-</header>
+{% extends 'app/base.html' %}
+{% load static %}
 
-<div style="margin: 1%;">
-  <div class="container">
-    <div class="row justify-content-around">
-      {% for producto in carts %}
-      <div class="col-lg-6">
-        <div class="carts">
-          <img src="{{ producto.imagen.url }}" alt="" style="height: 199px;">
-          <h5 class="card-title fw-bold text-light">{{ producto.nombre }}</h5>
-          <p>
-            <font color="#ffffff">${{ producto.precio }}</font>
-          </p>
-          <a href="" data-id="{{ producto.id }}" class="btn-add-cart">add to cart</a>
-        </div>
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'carritostyle.css' %}" />
+{% endblock %}
+
+{% block contenido %}
+<header>
+  <div class="header-section container">
+
+    <div>
+      <img onclick="showCart(this)" class="cart" src="{% static 'app/img/cart.png' %}" alt="">
+      <p class="count-product">0</p>
+    </div>
+    <div class="cart-products" id="products-id">
+      <p class="close-btn" onclick="closeBtn()">X</p>
+      <h3>Mi carrito</h3>
+      <div class="card-items">
+
       </div>
-      {% endfor %}
+      <h2>Total: $<strong class="price-total">0</strong></h2>
     </div>
   </div>
-</div>
+</header>
 
-<form method="post" enctype="multipart/form-data">
-  {% csrf_token %}
-  <input type="hidden" name="product_id" id="product_id">
-  {{ form.as_p }}
-  <button type="submit">Guardar</button>
-</form>
+<section class="container">
+  <div class="products">
+    <div class="carts">
+      <div>
+        <img src="{% static 'app/img/bateria.jpg' %}" alt="">
+        <p><span>20</span>$</p>
+      </div>
+      <p class="title">Cambio de bateria</p>
+      <a href="" data-id="1" class="btn-add-cart">add to cart</a>
+    </div>
+    <div class="carts">
+      <div>
+        <img src="{% static 'app/img/chequeo.png' %}" alt="" style="height: 199px;">
+        <p><span>35</span>$</p>
+      </div>
+      <p class="title">Comprobamos que antes de la mantencion del vehiculo este todo como corresponde</p>
+      <a href="" class="btn-add-cart" data-id="2">add to cart</a>
+    </div>
+    <div class="carts">
+      <div>
+        <img src="{% static 'app/img/mantenimientoauto.jpg' %}" alt="" style="height: 199px;">
+        <p><span>15.50</span>$</p>
+      </div>
+      <p class="title">Cambio de aceite, de refigerante, cambio de golilla</p>
+      <a href="" data-id="3" class="btn-add-cart">add to cart</a>
+    </div>
+    <div class="carts">
+      <div>
+        <img src="{% static 'app/img/pinturaauto.jpg' %}" alt="" style="height: 200px;">
+        <p><span>20.20</span>$</p>
+      </div>
+      <p class="title">Defectos que traiga su automovil</p>
+      <a href="" data-id="4" class="btn-add-cart">add to cart</a>
+    </div>
+    <div class="carts">
+      <div>
+        <img src="{% static 'app/img/rendimiento.jpg' %}" alt="">
+        <p><span>19</span>$</p>
+      </div>
+      <p class="title">Comprobamos que el sistema operativo del tablero este todo como corresponde</p>
+      <a href="" data-id="5" class="btn-add-cart">add to cart</a>
+    </div>
+    <div class="carts">
+      <div>
+        <img src="{% static 'app/img/reparacionauto.png' %}" alt="">
+        <p><span>45</span>$</p>
+      </div>
+      <p class="title">Reparaciones complejas, cambio de motor, embriague etc..</p>
+      <a href="" data-id="6" class="btn-add-cart">add to cart</a>
+    </div>
+  </div>
+</section>
 
-<a href="carrito.html" class="boton-carritos">
+<a href="servicio.html" class="boton-carritos">
   <!--<span class="texto-boton">Ir al carrito de compras</span> -->
   <span class="icono-carrito">
-    <img src="{% static 'app/img/izquierda.png' %}" alt="" style="height: 70px" /></span>
+    <img src="{% static 'app/img/izquierda.png' %}" alt="" style="height: 70px;">
+  </span>
 </a>
+
+<script>
+  function showCart(x) {
+    document.getElementById("products-id").style.display = "block";
+  }
+  function closeBtn() {
+    document.getElementById("products-id").style.display = "none";
+  }
+</script>
+<script src="{% static 'custmon.JS' %}"></script>
+
+<div>
+  <hr style="background-color: white" size="delgada">
+  <footer class="fin">
+    <br>
+    <h2 class="fra" style="text-align:center;color: white;">LE MONDE DES VOITURE</h2>
+    <p style="text-align:center;color: white;">© LE MONDE DES VOITURE. Todos los derechos reservados.</p>
+  </footer>
+</div>
 {% endblock %}
+
 
 
 {% block extra_js %}
@@ -54,11 +121,11 @@
   const addToCartButtons = document.querySelectorAll('.btn-add-cart');
 
   addToCartButtons.forEach(button => {
-    button.addEventListener('click', function(event) {
+    button.addEventListener('click', function (event) {
       event.preventDefault();
       const productId = this.getAttribute('data-id');
       document.getElementById('product_id').value = productId;
-      
+
     });
   });
 </script>

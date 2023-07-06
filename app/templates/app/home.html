@@ -2,15 +2,13 @@
 {% load static %}
 
 {% block contenido %}
-
-<!--IMAGENES Y MENU-->
-</div>
+<!-- IMAGENES Y MENU -->
 <div class="slider-cotainer">
     <section class="hero-section">
         <div class="card-grid">
             <a class="card" href="{% url 'inicio'%}">
-                <div class="card__background" style="background-image"> <img src="{% static 'app/img/sinlogo.jpg' %}"
-                        alt="INICIO" width="280px" height="420px">
+                <div class="card__background" style="background-image:none"> <img
+                        src="{% static 'app/img/sinlogo.jpg' %}" alt="INICIO" width="333px" height="500px">
 
                 </div>
                 <div class="card__content">
@@ -19,8 +17,8 @@
                 </div>
             </a>
             <a class="card" href="{% url 'acercade'%}">
-                <div class="card__background" style="background-image"> <img src="{% static 'app/img/ACERCADE.jpg' %}"
-                        alt="ACERCADE" width="280px" height="420px">
+                <div class="card__background" style="background-image:none"> <img
+                        src="{% static 'app/img/ACERCADE.jpg' %}" alt="ACERCADE" width="333px" height="500px">
                 </div>
                 <div class="card__content">
                     <p class="card__category">Category</p>
@@ -28,8 +26,8 @@
                 </div>
             </a>
             <a class="card" href="{% url 'servicio'%}">
-                <div class="card__background" style="background-image"><img src="{% static 'app/img/nose.jpg' %}"
-                        alt="SERVICIOS" width="280px" height="420px">
+                <div class="card__background" style="background-image:none"><img src="{% static 'app/img/nose.jpg' %}"
+                        alt="SERVICIOS" width="333px" height="500px">
                 </div>
                 <div class="card__content">
                     <p class="card__category">Category</p>
@@ -38,17 +36,26 @@
             </a>
             </li>
             <a class="card" href="{% url 'contacto'%}">
-                <div class="card__background" style="background-image"><img src="{% static 'app/img/contacto.jpg' %}"
-                        alt="CONTACTO" width="280px" height="420px">
+                <div class="card__background" style="background-image:none"><img
+                        src="{% static 'app/img/contacto.jpg' %}" alt="CONTACTO" width="333px" height="500px">
                 </div>
                 <div class=" card__content">
                     <p class="card__category">Category</p>
                     <h3 class="card__heading">CONTACTO</h3>
                 </div>
             </a>
-            
-    </section>
-</div>
-<div>
+            </li>
+            <a class="card" href="{% url 'contacto'%}">
+                <div class="card__background" style="background-image:none"><img
+                        src="{% static 'app/img/registro.jpg' %}" alt="registro" width="333px" height="500px">
+                </div>
+                <div class=" card__content">
+                    <p class="card__category">Category</p>
+                    <h3 class="card__heading">REGISTRO</h3>
+                </div>
+            </a>
 
-{% endblock %}
+
+        </div>
+
+        {% endblock %}
