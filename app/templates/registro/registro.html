@@ -1,25 +1,15 @@
 {% extends 'app/base.html' %}
-{% load static %}
-{% block extra_css%}
-<link rel="stylesheet" href="{% static 'app/css/registro.css' %}" />
-{% endblock %}
+
 {% block contenido %}
-<hr>
-<hr>
-<hr>
-<hr>
-<div class="container" style="color: white">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <h2>REGISTRARSE</h2>
-      <br>
-      <br>
-      <form method="post" action="{% url 'registro' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Registrarse</button>
-      </form>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit">Registrar</button>
+        </form>
+      </div>
     </div>
   </div>
-</div>
 {% endblock %}
