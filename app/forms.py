@@ -3,6 +3,7 @@ from .models import Contacto, Producto
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate
 from .models import Cuenta
+from django.contrib.auth.models import User
 
 class ContactoForm(forms.ModelForm):
     class Meta:
@@ -22,31 +23,22 @@ class ProductoForm(forms.ModelForm):
 
 
 
-
-
-class RegistroForm(UserCreationForm):
-    email = forms.EmailField(max_length=254, help_text='Requerido. Ingresa un email válido.')
-
-    class Meta:
-        model = Cuenta
-        fields = ('email', 'password1', 'password2')
-
-
-class AutenticarForm(forms.ModelForm):
-    password = forms.CharField(label='contraseña', widget=forms.PasswordInput)
-
-    class Meta:
-        model = Cuenta
-        fields = ['email', 'password']
-
-    def clean(self):
-        email = self.cleaned_data['email']
-        password = self.cleaned_data['password']
-
-        if not authenticate(email=email, password=password):
-            raise forms.ValidationError("El email o contraseña son incorrectos")
-
-
-class LoginForm(forms.Form):
-    email = forms.EmailField(label='Email')
+class LoginForm(AuthenticationForm):
+    username = forms.CharField(label='Nombre de usuario')
     password = forms.CharField(label='Contraseña', widget=forms.PasswordInput)
+    
+class RegistroForm(UserCreationForm):
+    email = forms.EmailField(required=True)
+
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password1', 'password2']
+
+
+class AutenticarForm(AuthenticationForm):
+    username = forms.CharField(label='Nombre de usuario')
+    password = forms.CharField(label='Contraseña', widget=forms.PasswordInput)
+
+    class Meta:
+        fields = ['username', 'password']
+
