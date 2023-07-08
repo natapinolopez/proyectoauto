@@ -64,7 +64,7 @@ def register_view(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('login')  # Redirigir a la página de inicio de sesión
+                return redirect('login')  # Redirigir a la página de login
     else:
         form = RegistroForm()
 
@@ -79,20 +79,23 @@ def global_context(request):
 @login_required
 def login_view(request):
     if request.method == 'POST':
-        form = AutenticarForm(request.POST)
+        form = LoginForm(request.POST)
         if form.is_valid():
-            username = form.cleaned_data['username']
+            email= form.cleaned_data['email']
             password = form.cleaned_data['password']
-            user = authenticate(request, username=username, password=password)
+            user = authenticate(request, email=email, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('home')  # Redirecciona a la página de inicio después de iniciar sesión
+                return redirect('home')
             else:
-                form.add_error(None, 'Nombre de usuario o contraseña incorrectos')
+                form.add_error(None, 'Correo electrónico o contraseña incorrectos')
     else:
-        form = AutenticarForm()
+        form = LoginForm()
 
     return render(request, 'registro/login.html', {'form': form})
+
+
+
 
 def csrf_failure_view(request, reason=""):
     return render(request, 'csrf_failure.html', {'reason': reason}, status=403)

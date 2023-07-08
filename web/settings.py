@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 
 LOGIN_URL =  '/login/'
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -134,6 +135,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'products')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTHENTICATION_BACKENDS = [
+    
     'django.contrib.auth.backends.ModelBackend',
 ]
 
