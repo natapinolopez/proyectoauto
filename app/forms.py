@@ -23,9 +23,10 @@ class ProductoForm(forms.ModelForm):
 
 
 
-class LoginForm(AuthenticationForm):
-    username = forms.CharField(label='Nombre de usuario')
+class LoginForm(forms.Form):
+    email = forms.EmailField(label='Correo electrónico')
     password = forms.CharField(label='Contraseña', widget=forms.PasswordInput)
+
     
 class RegistroForm(UserCreationForm):
     email = forms.EmailField(required=True)
