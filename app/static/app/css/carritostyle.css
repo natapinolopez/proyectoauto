@@ -1,3 +1,10 @@
+body {
+    font-family: system-ui;
+    background-image: url(imagenes/lemonde.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
 header {
     background-color: #e4e4e8;
     padding-top: 18px;
@@ -8,6 +15,7 @@ header {
     margin-top: -10px;
     z-index: 99;
 }
+
 
 .container {
     max-width: 1200px;
@@ -40,10 +48,15 @@ header {
     line-height: 18px;
 }
 
+.logo {
+    width: 164px;
+    height: 84px;
+    cursor: pointer;
+}
+
 .cart {
     width: 39px;
     height: 38px;
-
 }
 
 .cart-products {

@@ -1,8 +1,9 @@
 {% extends 'app/base.html' %}
 {% load static %}
 
+
 {% block extra_css %}
-<link rel="stylesheet" type="text/css" href="{% static 'carritostyle.css' %}" />
+<link rel="stylesheet" href="{% static 'app/css/carritostyle.css' %}" />
 {% endblock %}
 
 {% block contenido %}
@@ -17,8 +18,7 @@
       <p class="close-btn" onclick="closeBtn()">X</p>
       <h3>Mi carrito</h3>
       <div class="card-items">
-
-      </div>
+    </div>
       <h2>Total: $<strong class="price-total">0</strong></h2>
     </div>
   </div>
@@ -96,11 +96,7 @@
 
 <div>
   <hr style="background-color: white" size="delgada">
-  <footer class="fin">
-    <br>
-    <h2 class="fra" style="text-align:center;color: white;">LE MONDE DES VOITURE</h2>
-    <p style="text-align:center;color: white;">© LE MONDE DES VOITURE. Todos los derechos reservados.</p>
-  </footer>
+ 
 </div>
 {% endblock %}
 
