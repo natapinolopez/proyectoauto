@@ -1,0 +1,10 @@
+{% for producto in carts %}
+<div class="carts" id="product-{{ producto.id }}">
+  <div>
+    <img src="{{ producto.imagen.url }}" alt="">
+    <p><span>{{ producto.precio }}</span>$</p>
+  </div>
+  <p class="title">{{ producto.nombre }}</p>
+  <a href="{% url 'eliminar_del_carrito' producto_id=producto.id %}" class="btn-delete">Eliminar</a>
+</div>
+{% endfor %}

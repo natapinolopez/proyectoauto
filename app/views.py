@@ -51,6 +51,35 @@ def servicio(request):
         'form': form
     }
     return render(request, 'app/servicio.html', data)
+def agregar_al_carrito(request, producto_id):
+    
+    producto = Producto.objects.get(pk=producto_id)
+
+    # Verificar si el carrito de compras ya existe en la sesión
+    if 'carrito' not in request.session:
+        request.session['carrito'] = []
+
+    # Agregar el producto al carrito de compras
+    carrito = request.session['carrito']
+    carrito.append(producto_id)
+    request.session.modified = True  
+
+    return redirect('carrito')
+
+def ver_carrito(request):
+    carrito_ids = request.session.get('carrito', [])
+    carrito = Producto.objects.filter(pk__in=carrito_ids)
+    total = carrito.aggregate(total=Sum('precio'))['total'] or 0
+
+    return render(request, 'app/carrito.html', {'carrito': carrito, 'total': total})
+
+def eliminar_del_carrito(request, producto_id):
+    producto = get_object_or_404(Producto, id=producto_id)
+    if request.method == 'POST':
+        producto.delete()
+        return redirect('carrito')  
+
+    return render(request, 'app/confirmar_eliminar.html', {'product': producto})
 
 def register_view(request):
     if request.method == 'POST':
